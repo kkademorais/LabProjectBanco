@@ -33,11 +33,16 @@ public class ContaCorrente extends Conta{
         return super.sacar(saque);
     }
     @Override
-    public void depositar(double deposito) {
-        super.depositar(deposito);
+    public double depositar(double deposito) {
+        return super.depositar(deposito);
     }
     @Override
     public void transferir(Conta contaDestino, double saldoTransferir) {
         super.transferir(contaDestino, saldoTransferir);
+    }
+
+    @Override
+    public void exibirInfoConta() {
+        super.exibirInfoConta();
     }
 }

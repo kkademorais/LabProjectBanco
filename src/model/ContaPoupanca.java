@@ -24,9 +24,18 @@ public class ContaPoupanca extends Conta{
         return super.getTipoConta();
     }
     @Override
+    public double getRendimentoJuros() {
+        return super.getRendimentoJuros();
+    }
+    @Override
     public void setSaldo(double saldo) {
         super.setSaldo(saldo);
     }
+    @Override
+    public void setRendimentoJuros(double rendimentoJuros) {
+        super.setRendimentoJuros(rendimentoJuros);
+    }
+
 
     //Override dos métodos herdados
     @Override
@@ -34,8 +43,8 @@ public class ContaPoupanca extends Conta{
         super.transferir(contaDestino, saldoTransferir);
     }
     @Override
-    public void depositar(double deposito) {
-        super.depositar(deposito);
+    public double depositar(double deposito) {
+        return super.depositar(deposito);
     }
     @Override
     public double sacar(double saque) {
@@ -46,8 +55,9 @@ public class ContaPoupanca extends Conta{
         return super.conferirExtrato();
     }
 
-
-
-
-
+    @Override
+    public void exibirInfoConta() {
+        super.exibirInfoConta();
+        System.out.println("Rendimento da conta (%): " + getRendimentoJuros());
+    }
 }
