@@ -8,6 +8,7 @@ public class Banco {
     private double rendimentoJuros;
     private int numeroAgencia;
     private ArrayList<Cliente> listaClientes;
+    private ArrayList<Conta> listaContas;
 
     /*public Banco(){
         this.listaClientes = new ArrayList<>();
@@ -18,6 +19,7 @@ public class Banco {
         this.rendimentoJuros = rendimentoJuros;
         this.numeroAgencia = numeroAgencia;
         this.listaClientes = new ArrayList<>();
+        this.listaContas = new ArrayList<>();
     }
 
 
@@ -33,6 +35,9 @@ public class Banco {
     public int getNumeroAgencia() {
         return numeroAgencia;
     }
+    public ArrayList<Conta> getListaContas() {
+        return listaContas;
+    }
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -45,16 +50,23 @@ public class Banco {
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
     }
-
+    public void setListaContas(ArrayList<Conta> listaContas) {
+        this.listaContas = listaContas;
+    }
     //Registrar novo cliente no banco
     public void registrarCliente(Cliente clienteAdd){
         listaClientes.add(clienteAdd);
+        listaContas.add(clienteAdd.getConta());
         System.out.println("Cliente adicionado com sucesso!");
         clienteAdd.exibirInfoCliente();
+    }
 
-
-
-
+    //Exibindo info do banco
+    public void exibirInfoBanco(){
+        System.out.println("Exibindo informações do banco: ");
+        System.out.println("Nome: " + nome);
+        System.out.println("Taxa de rendimento dos juros (%): " + rendimentoJuros + "%");
+        System.out.println("Número da agência: " + numeroAgencia);
     }
 
 

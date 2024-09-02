@@ -7,7 +7,7 @@ public class Cliente {
     //private double dinheiroFisico;
 
 
-    public Cliente(){}
+    //public Cliente(){}
 
     public Cliente(String nome, Conta conta){
         this.nome = nome;

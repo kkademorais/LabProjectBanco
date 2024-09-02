@@ -8,22 +8,25 @@ public class Conta {
     private double saldo;
     private final String tipoConta;
     private double rendimentoJuros;
+    private final Banco banco;
 
     //Construtor
         //Corrente
-    public Conta(int agencia, int numero, double saldo, String tipoConta){
+    public Conta(int agencia, int numero, double saldo, String tipoConta, Banco banco){
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
         this.tipoConta = tipoConta;
+        this.banco = banco;
     }
         //Poupança
-    public Conta(int agencia, int numero, double saldo, String tipoConta, double rendimentoJuros){
+    public Conta(int agencia, int numero, double saldo, String tipoConta, double rendimentoJuros, Banco banco){
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
         this.tipoConta = tipoConta;
         this.rendimentoJuros = rendimentoJuros;
+        this.banco = banco;
     }
 
     //Métodos
@@ -63,6 +66,8 @@ public class Conta {
 
         setSaldo(saldo + deposito);
 
+        System.out.println("Valor depositado com sucesso: R$" + deposito);
+
         return saldo;
     }
 
@@ -78,6 +83,11 @@ public class Conta {
 
     }
 
+    public void mostrarSaldoAtual(){
+        System.out.println("Saldo atual: R$" + saldo);
+    }
+
+
     public double conferirExtrato(){
 
 
@@ -91,7 +101,7 @@ public class Conta {
         System.out.println("Número da agência: " + agencia);
         System.out.println("Número da conta: " + numero);
         System.out.println("Tipo da conta: " + tipoConta);
-
+        banco.exibirInfoBanco();
     }
 
     //Criar nova conta

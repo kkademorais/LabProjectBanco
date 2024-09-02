@@ -2,8 +2,9 @@ package service;
 
 import model.*;
 
-public class CaixaEletronico implements BancoInterface, ClienteInterface, ContaInterface, ContaCorrenteInterface, ContaPoupancaInterface {
-
+    //Coloquei /**/ e declarei abstrato -> Retornar ao normal quando for mexer
+public abstract class CaixaEletronico implements BancoInterface, ClienteInterface, ContaInterface, ContaCorrenteInterface, ContaPoupancaInterface {
+/*
     //BancoInterface
     public void registrarCliente(Cliente clienteAdd){
         listaClientes.add(clienteAdd);
@@ -76,15 +77,5 @@ public class CaixaEletronico implements BancoInterface, ClienteInterface, ContaI
     public void criarNovaConta() {
 
     }
-
-
-
-
-
-
-
-
-
-
-
+*/
 }
