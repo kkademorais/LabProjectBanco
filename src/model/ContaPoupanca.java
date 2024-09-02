@@ -44,6 +44,9 @@ public class ContaPoupanca extends Conta{
     }
     @Override
     public double depositar(double deposito) {
+        System.out.println("Depósito incrementado com os juros do banco para sua Conta Poupança!");
+        System.out.println("Juros do banco: " + getRendimentoJuros() + "%");
+        deposito = deposito + (getRendimentoJuros() / 100);
         return super.depositar(deposito);
     }
     @Override

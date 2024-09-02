@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+
 public class Conta {
 
     //Atributos
@@ -9,6 +11,10 @@ public class Conta {
     private final String tipoConta;
     private double rendimentoJuros;
     private final Banco banco;
+    private HashMap<Integer, HashMap<String, HashMap<Double, Double>>> historicoTransacoes;
+    private HashMap<String, HashMap<Double, Double>> transacaoUnitaria;
+    private HashMap<Double, Double> processoTransacao;
+    private int indexTransacoes;
 
     //Construtor
         //Corrente
@@ -18,6 +24,10 @@ public class Conta {
         this.saldo = saldo;
         this.tipoConta = tipoConta;
         this.banco = banco;
+        this.historicoTransacoes = new HashMap<>();
+        this.transacaoUnitaria = new HashMap<>();
+        this.processoTransacao = new HashMap<>();
+        this.indexTransacoes = 0;
     }
         //Poupança
     public Conta(int agencia, int numero, double saldo, String tipoConta, double rendimentoJuros, Banco banco){
@@ -27,6 +37,10 @@ public class Conta {
         this.tipoConta = tipoConta;
         this.rendimentoJuros = rendimentoJuros;
         this.banco = banco;
+        this.historicoTransacoes = new HashMap<>();
+        this.transacaoUnitaria = new HashMap<>();
+        this.processoTransacao = new HashMap<>();
+        this.indexTransacoes = 0;
     }
 
     //Métodos
@@ -51,6 +65,12 @@ public class Conta {
     public void setRendimentoJuros(double rendimentoJuros) {
         this.rendimentoJuros = rendimentoJuros;
     }
+    public int getIndexTransacoes() {
+        return indexTransacoes;
+    }
+    public void setIndexTransacoes(int indexTransacoes) {
+        this.indexTransacoes = indexTransacoes;
+    }
 
     //Métodos abstratos
     public double sacar(double saque){
@@ -58,6 +78,12 @@ public class Conta {
         setSaldo(saldo - saque);
 
         System.out.println("Saldo atual: R$" + saldo);
+
+        processoTransacao.put(saque, saldo);
+        transacaoUnitaria.put("Saque", processoTransacao);
+        indexTransacoes++;
+        historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
+
 
         return saque;
     }
@@ -67,6 +93,13 @@ public class Conta {
         setSaldo(saldo + deposito);
 
         System.out.println("Valor depositado com sucesso: R$" + deposito);
+
+
+        processoTransacao.put(deposito, saldo);
+        transacaoUnitaria.put("Deposito", processoTransacao);
+        indexTransacoes++;
+        historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
+
 
         return saldo;
     }
@@ -81,6 +114,11 @@ public class Conta {
         System.out.println("Conta destino: ");
         contaDestino.exibirInfoConta();
 
+        processoTransacao.put(saldoTransferir, saldo);
+        transacaoUnitaria.put("Transferencia", processoTransacao);
+        indexTransacoes++;
+        historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
+
     }
 
     public void mostrarSaldoAtual(){
@@ -89,6 +127,37 @@ public class Conta {
 
 
     public double conferirExtrato(){
+
+        //private HashMap<Integer, HashMap<String, HashMap<Double, Double>>> historicoTransacoes;
+        //private HashMap<String, HashMap<Double, Double>> transacaoUnitaria;
+        //private HashMap<Double, Double> processoTransacao;
+
+
+        System.out.println("Exibindo extrato bancário: ");
+
+            //Integer index: historicoTransacoes.keySet()
+        for(int index = 0; index < historicoTransacoes.keySet().size(); index++){
+            //System.out.println("Número da transação: " + historicoTransacoes.get(index));
+
+            System.out.println("Número da transação: " + historicoTransacoes.keySet().toArray()[index]);
+
+
+            System.out.println("Tipo da transação: " + transacaoUnitaria.keySet().toArray()[index]);
+            //System.out.println("Tipo da transação: " + historicoTransacoes.get(index).get(index.toString())); -> Null
+            //System.out.println("Tipo da transação: " + transacaoUnitaria.get(index.toString())); -> Null
+
+            //System.out.println("Valor da transação: R$" + historicoTransacoes.get(index).get(index.toString()).get(index.doubleValue())); -> NullPointerException
+            //System.out.println("Valor da transação: R$" + processoTransacao.get(index.doubleValue())); -> Null
+            System.out.println("Valor da transação: R$" + processoTransacao.keySet().toArray()[index]);
+
+
+            //System.out.println("Saldo no fim da transação: R$" + historicoTransacoes.get(index).get(index.toString()).get(index.doubleValue())); -> NullPointerException
+            //System.out.println("Saldo no fim da transação: R$" + processoTransacao.get(index.doubleValue())); -> Null
+            System.out.println("Saldo no fim da transação: R$" + processoTransacao.values().toArray()[index]);
+
+            System.out.println();
+        }
+
 
 
         return saldo;
@@ -101,6 +170,7 @@ public class Conta {
         System.out.println("Número da agência: " + agencia);
         System.out.println("Número da conta: " + numero);
         System.out.println("Tipo da conta: " + tipoConta);
+        System.out.println();
         banco.exibirInfoBanco();
     }
 

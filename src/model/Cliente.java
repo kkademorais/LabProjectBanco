@@ -31,6 +31,7 @@ public class Cliente {
     public void exibirInfoCliente(){
         System.out.println("Exibindo informações do cliente: ");
         System.out.println("Nome: " + nome);
+        System.out.println();
         conta.exibirInfoConta();
     }
 

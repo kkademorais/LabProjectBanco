@@ -88,6 +88,8 @@ public class Main {
 
         //Testar métodos da Conta -> depositar -> sacar
 
+
+
         System.out.println("Insira o valor que deseja depositar: ");
         double valorDepositar = scanner.nextDouble();
         System.out.println("Saldo atual: R$" + conta1.depositar(valorDepositar));
@@ -96,6 +98,8 @@ public class Main {
         double valorSacar = scanner.nextDouble();
         System.out.println("Dinheiro fisico: R$" + conta1.sacar(valorSacar));
 
+        System.out.println();
+        conta1.conferirExtrato();
 
 
         //Testar métodos do Cliente -> exibirInfo
