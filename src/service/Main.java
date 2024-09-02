@@ -87,9 +87,56 @@ public class Main {
         System.out.println();
 
         //Testar métodos da Conta -> depositar -> sacar
+        int opcaoMenu = 10;
+        Menu menu = new Menu();
 
+        while(opcaoMenu != 0){
+            System.out.println();
+            menu.exibirOpcoes();
+            System.out.println("Digite a opção desejada: ");
+            opcaoMenu = scanner.nextInt();
 
+            if(opcaoMenu == 0){
+                return;
+            }
+            else if (opcaoMenu == 1){
+                System.out.println("* Opção selecionada: Exibir informações da sua conta *");
+                System.out.println();
+                cliente1.exibirInfoCliente();
+            }
+            else if (opcaoMenu == 2){
+                System.out.println("* Opção selecionada: Realizar saque *");
+                System.out.println();
+                System.out.println("Insira o valor que deseja sacar: ");
+                double valorSacar = scanner.nextDouble();
 
+                if(valorSacar >= conta1.getSaldo()){
+                    System.out.println("Saldo insuficiente! Necessário depósito");
+                }
+                else{
+                    System.out.println("Dinheiro fisico: R$" + conta1.sacar(valorSacar));
+                }
+            }
+            else if (opcaoMenu == 3){
+                System.out.println("* Opção selecionada: Realizar depósito *");
+                System.out.println();
+                System.out.println("Insira o valor que deseja depositar: ");
+                double valorDepositar = scanner.nextDouble();
+                System.out.println("Saldo atual: R$" + conta1.depositar(valorDepositar));
+            }
+            else if (opcaoMenu == 4){
+                System.out.println("* Opção selecionada: Realizar transferência *");
+                System.out.println();
+            }
+            else if (opcaoMenu == 5){
+                System.out.println("* Opção selecionada: Conferir extrato bancário *");
+                System.out.println();
+                conta1.conferirExtrato();
+            }
+
+        }
+
+        /*
         System.out.println("Insira o valor que deseja depositar: ");
         double valorDepositar = scanner.nextDouble();
         System.out.println("Saldo atual: R$" + conta1.depositar(valorDepositar));
@@ -105,7 +152,7 @@ public class Main {
         //Testar métodos do Cliente -> exibirInfo
         System.out.println("Exibir info do cliente: ");
         cliente1.exibirInfoCliente();
-
+        */
 
 
 
