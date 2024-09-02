@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60393f9a-cfe2-407d-b332-8ee3a390c8f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/model/BancoInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/ClienteInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/ContaCorrenteInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/ContaInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/ContaPoupancaInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/CaixaEletronico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ContaCorrente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ContaPoupanca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,6 +49,11 @@
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/User/ProjetosGithub/dioBootcamp/src/LabProjectBanco/ProjectBanco/src/service/Main.java&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="service" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

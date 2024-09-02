@@ -9,15 +9,15 @@ public class Banco {
     private int numeroAgencia;
     private ArrayList<Cliente> listaClientes;
 
-    public Banco(){
+    /*public Banco(){
         this.listaClientes = new ArrayList<>();
-    }
+    }*/
 
-    public Banco(String nome, double rendimentoJuros, ArrayList<Cliente> listaClientes, int numeroAgencia){
+    public Banco(String nome, double rendimentoJuros, int numeroAgencia){
         this.nome = nome;
         this.rendimentoJuros = rendimentoJuros;
-        this.listaClientes = new ArrayList<>();
         this.numeroAgencia = numeroAgencia;
+        this.listaClientes = new ArrayList<>();
     }
 
 
@@ -38,6 +38,9 @@ public class Banco {
     }
     public void setRendimentoJuros(double rendimentoJuros) {
         this.rendimentoJuros = rendimentoJuros;
+    }
+    public void setNumeroAgencia(int numeroAgencia) {
+        this.numeroAgencia = numeroAgencia;
     }
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
         this.listaClientes = listaClientes;

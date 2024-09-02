@@ -1,9 +1,6 @@
 package service;
 
-import model.Banco;
-import model.Conta;
-import model.ContaCorrente;
-import model.ContaPoupanca;
+import model.*;
 
 import java.util.Scanner;
 import java.util.Locale;
@@ -15,17 +12,34 @@ public class Main {
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
         //Instanciar:
-            //Banco -> Cliente -> Conta
+            //Banco -> Conta -> Cliente
         System.out.println("*Registrando Banco*");
-        Banco banco1 = new Banco();
+        String nomeBanco;
+        double rendimentoJurosBanco;
+        int numeroAgenciaBanco;
         System.out.println("Digite o nome do banco a ser registrado: ");
-
-
-
-
+        nomeBanco = scanner.nextLine();
+        System.out.println("Digite a taxa de rendimento dos juros ativo no banco (%): ");
+        rendimentoJurosBanco = scanner.nextDouble();
+        System.out.println("Digite o número de agência: ");
+        numeroAgenciaBanco = scanner.nextInt();
+        Banco banco1 = new Banco(nomeBanco, rendimentoJurosBanco, numeroAgenciaBanco);
 
 
         System.out.println("*Registrando Conta Bancária*");
+
+
+        System.out.println("Deseja criar uma conta no último banco registrado? ");
+        System.out.println("(Y) -> Criar conta nova no último banco registrado");
+        System.out.println("(N) -> Registrar novo banco");
+        System.out.println("Digite sua opção desejada: ");
+        String opcaoBanco = scanner.next();
+        //if Y => Criar conta normalmente e atrelar ao último banco registrado
+        //else if N => Chamar método pra registrar novo banco e em seguida registrar conta nele
+
+
+
+
         int agenciaConta;
         int numeroConta;
         double saldoConta;
@@ -48,7 +62,17 @@ public class Main {
         //ContaPoupanca conta1 = new ContaPoupanca(agenciaConta, numeroConta, saldoConta, tipoConta, rendimentoJurosConta);
 
 
-
+        System.out.println("*Registrando cliente do banco e dono da conta registrada*");
+        String nomeCliente;
+        System.out.println("Digite seu nome enquanto cliente: ");
+        nomeCliente = scanner.nextLine();
+        System.out.println("Deseja registrar a última conta criada no seu nome? ");
+        System.out.println("(Y) -> Registrar a última conta criada no seu nome");
+        System.out.println("(N) -> Criar nova conta");
+        System.out.println("Digite sua opção desejada: ");
+        String opcaoConta = scanner.next();
+        //if Y => Atrelar conta
+        //else if N => Chamar método pra criar nova conta
 
 
 

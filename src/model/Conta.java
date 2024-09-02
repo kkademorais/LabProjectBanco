@@ -3,10 +3,10 @@ package model;
 public class Conta {
 
     //Atributos
-    private int agencia;
-    private int numero;
+    private final int agencia;
+    private final int numero;
     private double saldo;
-    private String tipoConta;
+    private final String tipoConta;
     private double rendimentoJuros;
 
     //Construtor
@@ -92,8 +92,10 @@ public class Conta {
         System.out.println("Número da conta: " + numero);
         System.out.println("Tipo da conta: " + tipoConta);
 
+    }
 
-
+    //Criar nova conta
+    public void criarNovaConta(){
 
     }
 
