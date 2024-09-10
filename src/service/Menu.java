@@ -1,7 +1,13 @@
 package service;
 
-import java.util.Scanner;
-import java.util.Locale;
+import model.Banco;
+import model.Cliente;
+import model.Conta;
+
+import java.util.*;
+import java.util.Collection;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class Menu {
 
@@ -21,6 +27,26 @@ public class Menu {
 
         //Exibir info - Sacar - Depositar - Transferir - Conferir extrato
     }
+
+    public void buscarContaDestinoTransferencia(int agenciaDestino, int numeroContaDestino, String tipoContaDestino, HashMap<Integer, Banco> bancosMap){
+
+
+        for(int i = 0; i < bancosMap.size(); i++){
+            if(agenciaDestino == bancosMap.values().iterator().next().getNumeroAgencia()){
+                if(numeroContaDestino == bancosMap.values().iterator().next().getListaContas().iterator().next().getNumero()){
+                    if(tipoContaDestino.equalsIgnoreCase(bancosMap.values().iterator().next().getListaContas().iterator().next().getTipoConta())){
+                        System.out.println("Conta encontrada! ");
+                        //Conta contaDestino =
+                        //bancosMap.values().iterator().next().getListaContas()[i];
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
 
 
 }

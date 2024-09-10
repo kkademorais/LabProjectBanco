@@ -2,8 +2,8 @@ package model;
 
 public class ContaCorrente extends Conta{
 
-    public ContaCorrente(int agencia, int numero, double saldo, String tipoConta, Banco banco){
-        super(agencia, numero, saldo, tipoConta, banco);
+    public ContaCorrente(int agencia, int numero, String tipoConta, Banco banco){
+        super(agencia, numero, tipoConta, banco);
     }
 
     @Override

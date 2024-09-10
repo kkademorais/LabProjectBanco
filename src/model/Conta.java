@@ -14,35 +14,32 @@ public class Conta {
     private double rendimentoJuros;
     private final Banco banco;
     private HashMap<Integer, HashMap<String, HashMap<Double, Double>>> historicoTransacoes;
-    //private HashMap<String, HashMap<Double, Double>> transacaoUnitaria;
-    //private HashMap<Double, Double> processoTransacao;
     private int indexTransacoes;
+    private double dinheiroFisico;
 
     //Construtor
         //Corrente
-    public Conta(int agencia, int numero, double saldo, String tipoConta, Banco banco){
+    public Conta(int agencia, int numero, String tipoConta, Banco banco){
         this.agencia = agencia;
         this.numero = numero;
-        this.saldo = saldo;
+        this.saldo = 0;
         this.tipoConta = tipoConta;
         this.banco = banco;
         this.historicoTransacoes = new HashMap<>();
-        //this.transacaoUnitaria = new HashMap<>();
-        //this.processoTransacao = new HashMap<>();
         this.indexTransacoes = 0;
+        this.dinheiroFisico = 0;
     }
         //Poupança
-    public Conta(int agencia, int numero, double saldo, String tipoConta, double rendimentoJuros, Banco banco){
+    public Conta(int agencia, int numero, String tipoConta, double rendimentoJuros, Banco banco){
         this.agencia = agencia;
         this.numero = numero;
-        this.saldo = saldo;
+        this.saldo = 0;
         this.tipoConta = tipoConta;
         this.rendimentoJuros = rendimentoJuros;
         this.banco = banco;
         this.historicoTransacoes = new HashMap<>();
-        //this.transacaoUnitaria = new HashMap<>();
-        //this.processoTransacao = new HashMap<>();
         this.indexTransacoes = 0;
+        this.dinheiroFisico = 0;
     }
 
     //Métodos
@@ -73,6 +70,12 @@ public class Conta {
     public void setIndexTransacoes(int indexTransacoes) {
         this.indexTransacoes = indexTransacoes;
     }
+    public double getDinheiroFisico() {
+        return dinheiroFisico;
+    }
+    public void setDinheiroFisico(double dinheiroFisico) {
+        this.dinheiroFisico = dinheiroFisico;
+    }
 
     //Métodos abstratos
     public double sacar(double saque){
@@ -91,8 +94,9 @@ public class Conta {
         indexTransacoes++;
         historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
 
+        setDinheiroFisico(dinheiroFisico + saque);
 
-        return saque;
+        return dinheiroFisico;
     }
 
     public double depositar(double deposito){

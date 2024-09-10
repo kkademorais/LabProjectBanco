@@ -2,8 +2,8 @@ package model;
 
 public class ContaPoupanca extends Conta{
 
-    public ContaPoupanca(int agencia, int numero, double saldo, String tipoConta, double rendimentoJuros, Banco banco){
-        super(agencia, numero, saldo, tipoConta, rendimentoJuros, banco);
+    public ContaPoupanca(int agencia, int numero, String tipoConta, double rendimentoJuros, Banco banco){
+        super(agencia, numero, tipoConta, rendimentoJuros, banco);
     }
 
     
