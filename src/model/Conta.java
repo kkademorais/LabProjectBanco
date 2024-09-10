@@ -1,6 +1,8 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Set;
+import java.util.stream.Stream;
 
 public class Conta {
 
@@ -12,8 +14,8 @@ public class Conta {
     private double rendimentoJuros;
     private final Banco banco;
     private HashMap<Integer, HashMap<String, HashMap<Double, Double>>> historicoTransacoes;
-    private HashMap<String, HashMap<Double, Double>> transacaoUnitaria;
-    private HashMap<Double, Double> processoTransacao;
+    //private HashMap<String, HashMap<Double, Double>> transacaoUnitaria;
+    //private HashMap<Double, Double> processoTransacao;
     private int indexTransacoes;
 
     //Construtor
@@ -25,8 +27,8 @@ public class Conta {
         this.tipoConta = tipoConta;
         this.banco = banco;
         this.historicoTransacoes = new HashMap<>();
-        this.transacaoUnitaria = new HashMap<>();
-        this.processoTransacao = new HashMap<>();
+        //this.transacaoUnitaria = new HashMap<>();
+        //this.processoTransacao = new HashMap<>();
         this.indexTransacoes = 0;
     }
         //Poupança
@@ -38,8 +40,8 @@ public class Conta {
         this.rendimentoJuros = rendimentoJuros;
         this.banco = banco;
         this.historicoTransacoes = new HashMap<>();
-        this.transacaoUnitaria = new HashMap<>();
-        this.processoTransacao = new HashMap<>();
+        //this.transacaoUnitaria = new HashMap<>();
+        //this.processoTransacao = new HashMap<>();
         this.indexTransacoes = 0;
     }
 
@@ -79,8 +81,13 @@ public class Conta {
 
         System.out.println("Saldo atual: R$" + saldo);
 
+        //Criando para cada transação
+        HashMap<Double, Double> processoTransacao = new HashMap<>();
         processoTransacao.put(saque, saldo);
+
+        HashMap<String, HashMap<Double, Double>> transacaoUnitaria = new HashMap<>();
         transacaoUnitaria.put("Saque", processoTransacao);
+
         indexTransacoes++;
         historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
 
@@ -94,9 +101,13 @@ public class Conta {
 
         System.out.println("Valor depositado com sucesso: R$" + deposito);
 
-
+        //Criando para cada transação
+        HashMap<Double, Double> processoTransacao = new HashMap<>();
         processoTransacao.put(deposito, saldo);
+
+        HashMap<String, HashMap<Double, Double>> transacaoUnitaria = new HashMap<>();
         transacaoUnitaria.put("Deposito", processoTransacao);
+
         indexTransacoes++;
         historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
 
@@ -114,8 +125,13 @@ public class Conta {
         System.out.println("Conta destino: ");
         contaDestino.exibirInfoConta();
 
+        //Criando para cada transação
+        HashMap<Double, Double> processoTransacao = new HashMap<>();
         processoTransacao.put(saldoTransferir, saldo);
+
+        HashMap<String, HashMap<Double, Double>> transacaoUnitaria = new HashMap<>();
         transacaoUnitaria.put("Transferencia", processoTransacao);
+
         indexTransacoes++;
         historicoTransacoes.put(indexTransacoes, transacaoUnitaria);
 
@@ -128,21 +144,48 @@ public class Conta {
 
     public double conferirExtrato(){
 
-        //private HashMap<Integer, HashMap<String, HashMap<Double, Double>>> historicoTransacoes;
-        //private HashMap<String, HashMap<Double, Double>> transacaoUnitaria;
-        //private HashMap<Double, Double> processoTransacao;
-
+        //private HashMap<Integer, HashMap<String, HashMap<Double, Double>>> historicoTransacoes; -> IndexTransacao, transacaounitaria
+        //private HashMap<String, HashMap<Double, Double>> transacaoUnitaria; -> TipoTransacao, processoTransacao
+        //private HashMap<Double, Double> processoTransacao; -> ValorTransacao, SaldoFinal
 
         System.out.println("Exibindo extrato bancário: ");
 
+        for(Integer index: historicoTransacoes.keySet()){
+            //Número transacao -> key do historicoTransacoes
+            //Tipo transacao -> key do transacaoUnitaria
+            //Valor transacao -> key do processoTransacao
+            //Saldo no fim -> value do processoTransacao
+
+            Integer numeroTransacao = historicoTransacoes.keySet().iterator().next();
+
+            //Pega a transação individual
+            HashMap<String, HashMap<Double, Double>> transacaoUnitaria = historicoTransacoes.get(index);
+            String tipoTransacao = transacaoUnitaria.keySet().iterator().next();
+
+            //Pega a transação individual
+            HashMap<Double, Double> processoTransacao = transacaoUnitaria.get(tipoTransacao);
+            Double valorTransacao = processoTransacao.keySet().iterator().next();
+            Double saldoFinal = processoTransacao.get(valorTransacao);
+
+
+            System.out.println("Número da transação: " + numeroTransacao);
+            System.out.println("Tipo da transação: " + tipoTransacao);
+            System.out.println("Valor da transação: R$" + valorTransacao);
+            System.out.println("Saldo no fim da transação: R$" + saldoFinal);
+            System.out.println();
+        }
+
             //Integer index: historicoTransacoes.keySet()
-        for(int index = 0; index < historicoTransacoes.keySet().size(); index++){
+        /*for(int index = 0; index < indexTransacoes; index++){
             //System.out.println("Número da transação: " + historicoTransacoes.get(index));
 
             System.out.println("Número da transação: " + historicoTransacoes.keySet().toArray()[index]);
+            //System.out.println("Número da transação: " + numeroTransacoes[index]);
 
 
             System.out.println("Tipo da transação: " + transacaoUnitaria.keySet().toArray()[index]);
+            //System.out.println("Tipo da transação: " + tipoTransacao[index]);
+
             //System.out.println("Tipo da transação: " + historicoTransacoes.get(index).get(index.toString())); -> Null
             //System.out.println("Tipo da transação: " + transacaoUnitaria.get(index.toString())); -> Null
 
@@ -156,7 +199,7 @@ public class Conta {
             System.out.println("Saldo no fim da transação: R$" + processoTransacao.values().toArray()[index]);
 
             System.out.println();
-        }
+        }*/
 
 
 

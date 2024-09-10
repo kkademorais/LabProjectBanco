@@ -82,6 +82,7 @@ public class Main {
         //if Y => Atrelar conta
         //else if N => Chamar método pra criar nova conta
 
+        System.out.println();
         System.out.println("*Registrando primeiro cliente ao banco!*");
         banco1.registrarCliente(cliente1);
         System.out.println();
@@ -95,6 +96,7 @@ public class Main {
             menu.exibirOpcoes();
             System.out.println("Digite a opção desejada: ");
             opcaoMenu = scanner.nextInt();
+            System.out.println();
 
             if(opcaoMenu == 0){
                 return;
