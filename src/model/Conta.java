@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -160,7 +161,7 @@ public class Conta {
             //Valor transacao -> key do processoTransacao
             //Saldo no fim -> value do processoTransacao
 
-            Integer numeroTransacao = historicoTransacoes.keySet().iterator().next();
+
 
             //Pega a transação individual
             HashMap<String, HashMap<Double, Double>> transacaoUnitaria = historicoTransacoes.get(index);
@@ -172,7 +173,7 @@ public class Conta {
             Double saldoFinal = processoTransacao.get(valorTransacao);
 
 
-            System.out.println("Número da transação: " + numeroTransacao);
+            System.out.println("Número da transação: " + index);
             System.out.println("Tipo da transação: " + tipoTransacao);
             System.out.println("Valor da transação: R$" + valorTransacao);
             System.out.println("Saldo no fim da transação: R$" + saldoFinal);

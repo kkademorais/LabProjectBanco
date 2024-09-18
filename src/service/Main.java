@@ -141,15 +141,62 @@ public class Main {
                 System.out.println("Conta de destino: Corrente ou Poupanca? ");
                 String tipoContaDestino = scanner.nextLine();
 
-                menu.buscarContaDestinoTransferencia(agenciaDestino, numeroDestino, tipoContaDestino, bancosMap);
+                scanner.nextLine();
+                System.out.println("Insira o valor que deseja transferir: ");
+                double saldoTransferir = scanner.nextDouble();
 
+                menu.transferirSaldo(conta1.getAgencia(), conta1.getNumero(), conta1.getTipoConta(), conta1.getAgencia(), numeroDestino, tipoContaDestino, saldoTransferir, bancosMap);
 
+                //menu.buscarContaDestinoTransferencia(agenciaDestino, numeroDestino, tipoContaDestino, bancosMap);
 
             }
             else if (opcaoMenu == 5){
                 System.out.println("* Opção selecionada: Conferir extrato bancário *");
                 System.out.println();
                 conta1.conferirExtrato();
+            }
+            else if(opcaoMenu == 6){
+                System.out.println("* Opção selecionada: Verificar saldo atual *");
+                System.out.println("Saldo atual: R$" + conta1.getSaldo());
+            }
+            else if (opcaoMenu == 7){
+                scanner.nextLine();
+                System.out.println("* Opção selecionada: Criar nova conta *");
+                System.out.println();
+
+                numeroConta = 2;
+                rendimentoJurosConta = banco1.getRendimentoJuros();
+
+                System.out.println("Tipos de conta disponíveis: ");
+                System.out.println("Conta Corrente");
+                System.out.println("Conta Poupança");
+                System.out.println("Digite o tipo da conta desejada: ");
+                tipoConta = scanner.nextLine();
+
+                if(tipoConta.equalsIgnoreCase("Corrente")){
+                    ContaCorrente conta2 = new ContaCorrente(agenciaConta, numeroConta, tipoConta, banco1);
+                    System.out.println();
+                    System.out.println("*Registrando cliente do banco e dono da conta registrada*");
+                    System.out.println("Digite seu nome enquanto cliente: ");
+                    nomeCliente = scanner.nextLine();
+                    Cliente cliente2 = new Cliente(nomeCliente, conta2);
+                    System.out.println();
+                    System.out.println("*Registrando segundo cliente ao banco!*");
+                    banco1.registrarCliente(cliente2);
+                    System.out.println();
+                }
+                else if(tipoConta.equalsIgnoreCase("Poupança")){
+                    ContaPoupanca conta2 = new ContaPoupanca(agenciaConta, numeroConta, tipoConta, rendimentoJurosConta, banco1);
+                    System.out.println();
+                    System.out.println("*Registrando cliente do banco e dono da conta registrada*");
+                    System.out.println("Digite seu nome enquanto cliente: ");
+                    nomeCliente = scanner.nextLine();
+                    Cliente cliente2 = new Cliente(nomeCliente, conta2);
+                    System.out.println();
+                    System.out.println("*Registrando segundo cliente ao banco!*");
+                    banco1.registrarCliente(cliente2);
+                    System.out.println();
+                }
             }
 
         }

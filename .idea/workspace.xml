@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60393f9a-cfe2-407d-b332-8ee3a390c8f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/service/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BancoInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ClienteInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ContaCorrenteInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ContaInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ContaPoupancaInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/CaixaEletronico.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,15 +41,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/User/ProjetosGithub/dioBootcamp/src/LabProjectBanco/ProjectBanco/src/service/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/ProjetosFaculdade/POO/Aula20_Threads/ex01&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/User/ProjetosGithub/dioBootcamp/src/LabProjectBanco/ProjectBanco/src/service/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="service" />
